@@ -1,0 +1,32 @@
+section h2 /* Underline section headings */
+{
+    text-decoration: underline;
+}
+
+.petImg
+{
+   border-style: double;
+   border-color: gray;
+}
+
+figure
+{
+    margin-right: auto;
+    width: fit-content;
+}
+
+figure figcaption
+{
+    color: gray;
+    font-style: italic;
+    text-align: center;
+}
+
+footer
+{
+    border-top-style: solid;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    padding-top: 15px;
+}
