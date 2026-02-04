@@ -1,35 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>World of Pets</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/main.css">
-        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-        <script defer src="js/main.js"></script>
-    </head>
+    <?php include 'inc/head.inc.php'; ?>
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-            <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.jpeg" alt="World of Pets Logo" style="width:40px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarT">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarT">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#dogs">Dogs</a></li>
-                <li class="nav-item"><a class="nav-link" href="#cats">Cats</a></li>
-            </ul>
-            </div>
-        </nav>
-        <header class="jumbotron text-center text-light bg-dark rounded-0">
-            <h1 class="display-4">Welcome to the World of Pets</h1>
-            <h2>Home of Singapore's Pet Lovers</h2>
-        </header>
+        <?php include 'inc/nav.inc.php'; ?>
+        <?php include 'inc/header.inc.php'; ?>
         <main class ="container">
             <section>
                 <h2 id="dogs">All About Dogs!</h2>
@@ -91,8 +65,6 @@
                 </div>
             </section>
         </main>
-        <footer class="container">
-            <p><em>Copyright &copy; 2026 World of Pets Pte. Ltd.</em></p>
-        </footer>
+        <?php include 'inc/footer.inc.php'; ?>
     </body>
 </html>
