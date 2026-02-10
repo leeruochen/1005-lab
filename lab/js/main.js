@@ -1,6 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     // executes function registerEventListeners when content is loaded
     registerEventListeners();
+    activateMenu();
+});
+
+window.addEventListener("hashchange", function() {
+    // re-activate menu on hash change
+    activateMenu();
+});
+
+document.addEventListener("turbo:load", function() {
+    activateMenu();
 });
 
 function registerEventListeners() { 
@@ -48,4 +58,16 @@ function togglePopupImage(img) {
         // attaches the overlay to the body of the document
         document.body.appendChild(overlay);
     }
+}
+
+function activateMenu()
+{
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        if (link.href === location.href) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 }
