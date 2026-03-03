@@ -19,6 +19,11 @@
                 <img src="images/profile.jpeg" alt="Profile Icon" style="width:30px;">
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="login.php">
+                <img src="images/login.png" alt="Login Icon" style="width:30px;">
+            </a>
+        </li>
     </ul>
     </div>
 </nav>

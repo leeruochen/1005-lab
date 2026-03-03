@@ -9,7 +9,7 @@ require_once __DIR__ . '/inc/functions.inc.php';
         <?php include 'inc/nav.inc.php'; ?>
         <main class ="container">
             <?php
-                $email = $fname = $lname = $errorMsg = "";
+                $email = $pwd = $fname = $lname = $errorMsg = "";
                 $success = true;
 
                 function sanitize_input($data)
@@ -30,53 +30,29 @@ require_once __DIR__ . '/inc/functions.inc.php';
                     else
                     {
                         $email = sanitize_input($_POST["email"]);
-                        // validate email format
-                        if (!filter_var($email, FILTER_VALIDATE_EMAIL))
-                        {
-                            $errorMsg .= "Invalid email format.<br>";
-                            $success = false;
-                        }
                     }
 
-                    $fname = sanitize_input($_POST["fname"]);
-                    
-                    if (empty($_POST["lname"]))
+                    if (empty($_POST["pwd"]))
                     {
-                        $errorMsg .= "Last name is required.<br>";
-                        $success = false;
-                    }
-                    else
-                    {
-                        $lname = sanitize_input($_POST["lname"]);
-                    }
-
-                    if (empty($_POST["pwd"]) || empty($_POST["pwd_confirm"]))
-                    {
-                        $errorMsg .= "Password and confirmation are required.<br>";
-                        $success = false;
-                    }
-                    else if ($_POST["pwd"] !== $_POST["pwd_confirm"])
-                    {
-                        $errorMsg .= "Passwords do not match.<br>";
+                        $errorMsg .= "Password is required.<br>";
                         $success = false;
                     }
 
                     if ($success)
                     {
-                        $pwd_hashed = password_hash($_POST["pwd"], PASSWORD_DEFAULT);
-                        saveMemberToDB();
+                        authenticateUser();
                         if ($success)
                         {
-                            echo "<h2>Your registration is successful!</h2>";
-                            echo "<h3>Thank you for signing up, " . $lname . "</h3>";
-                            echo "<div class=\"mb-3\"><a href='index.php' class='btn btn-primary'>Log in</a></div>";
+                            echo "<h2>Your login is successful!</h2>";
+                            echo "<h3>Welcome back, " . $fname . " " . $lname . "</h3>";
+                            echo "<div class=\"mb-3\"><a href='index.php' class='btn btn-primary'>Return to Home</a></div>";
                         }
                         else
                         {
                             echo "<h2>Oops!</h2>";
                             echo "<h3>The following errors were detected:</h3>";
                             echo "<p>" . $errorMsg . "</p>";
-                            echo "<div class=\"mb-3\"><a href='register.php' class='btn btn-primary'>Return to Registration</a></div>";
+                            echo "<div class=\"mb-3\"><a href='login.php' class='btn btn-primary'>Return to Login</a></div>";
                         }
                     }
                     else
@@ -84,7 +60,7 @@ require_once __DIR__ . '/inc/functions.inc.php';
                         echo "<h2>Oops!</h2>";
                         echo "<h3>The following errors were detected:</h3>";
                         echo "<p>" . $errorMsg . "</p>";
-                        echo "<div class=\"mb-3\"><a href='register.php' class='btn btn-primary'>Return to Registration</a></div>";
+                        echo "<div class=\"mb-3\"><a href='login.php' class='btn btn-primary'>Return to Login</a></div>";
                     }
                 }
             ?>
